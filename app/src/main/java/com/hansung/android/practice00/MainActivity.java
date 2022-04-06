@@ -14,9 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.hansung.android.practice00.R;
 
 public class MainActivity extends Activity {
 
@@ -50,7 +54,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        tvDate = (TextView)findViewById(R.id.tv_date);
+        tvDate = (TextView)findViewById(R.id.today);
         gridView = (GridView)findViewById(R.id.gridview);
 
         // 오늘에 날짜를 세팅 해준다.
@@ -66,13 +70,7 @@ public class MainActivity extends Activity {
 
         //gridview 요일 표시
         dayList = new ArrayList<String>();
-        dayList.add("일");
-        dayList.add("월");
-        dayList.add("화");
-        dayList.add("수");
-        dayList.add("목");
-        dayList.add("금");
-        dayList.add("토");
+
 
         mCal = Calendar.getInstance();
 
@@ -87,6 +85,7 @@ public class MainActivity extends Activity {
 
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
         gridView.setAdapter(gridAdapter);
+        // 항목 클릭 이벤트 처리
 
     }
 
